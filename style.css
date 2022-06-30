@@ -58,7 +58,7 @@ ul {
 }
 
 section {
-  padding-block: 16rem;
+  padding-block: 12rem;
 }
 
 section header h4 {
@@ -343,6 +343,11 @@ body.menu-expanded button path {
   background-color: #ffffff;
   border: 1px solid var(--brand-light);
   border-radius: 0.6rem;
+  transition: scale .3s;
+}
+
+#services .card:hover{
+  scale: 1.1;
 }
 
 #services .card svg,
@@ -470,10 +475,6 @@ footer .social-links {
     grid-area: B;
   }
 
-  section {
-    padding-block: 16rem;
-  }
-
   section header h2 {
     font-size: 4rem;
     line-height: 5.2rem;
@@ -552,6 +553,7 @@ footer .social-links {
     color: #ffffff;
   }
 
+  nav#navigation .menu li a.active,
   nav#navigation .menu li a:hover {
     opacity: 1;
     font-weight: 700;
@@ -577,15 +579,18 @@ footer .social-links {
     background-color: #ffffff;
   }
 
+  nav#navigation .menu li a.active::after,
   nav#navigation .menu li a:hover::after {
     width: 100%;
     padding-inline: 0.8rem;
   }
 
+  nav#navigation.scroll .menu li a.active,
   nav#navigation.scroll .menu li a:hover {
     opacity: 1;
   }
 
+  nav#navigation.scroll .menu a.button.active,
   nav#navigation.scroll .menu a.button:hover {
     background-color: var(--primary-color);
     filter: brightness(1.3);
