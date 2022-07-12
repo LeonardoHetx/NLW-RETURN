@@ -138,3 +138,17 @@ function next(){
 function setCard(num){
    return arrows[num].setAttribute('for', `sec${i}`)
 }
+
+// MODAL WINDOWS
+
+function modal(img){
+   var modalWindow = document.getElementById("modalWindow")
+   let modalImage = document.getElementById("modalImage")
+   let btnClose = document.getElementById("btnClose")
+
+   modalWindow.style.display = "block"
+   modalImage.src = img
+   btnClose.onclick = function(){
+      modalWindow.style.display = "none"
+   }
+}
