@@ -108,8 +108,7 @@ function textAppear(a) {
 
 // toCount(number in text, how often, number position in class list, time to count)
 toCount(3500, 100, 0, 20)
-toCount(15, 1, 1, 70)
-toCount(10, 1, 2, 100)
+toCount(20, 1, 1, 50)
 
 
 //#DEPOSITIONS ARROW PREV AND NXT
@@ -137,18 +136,4 @@ function next(){
 
 function setCard(num){
    return arrows[num].setAttribute('for', `sec${i}`)
-}
-
-// MODAL WINDOWS
-
-function modal(img){
-   var modalWindow = document.getElementById("modalWindow")
-   let modalImage = document.getElementById("modalImage")
-   let btnClose = document.getElementById("btnClose")
-
-   modalWindow.style.display = "block"
-   modalImage.src = img
-   btnClose.onclick = function(){
-      modalWindow.style.display = "none"
-   }
 }

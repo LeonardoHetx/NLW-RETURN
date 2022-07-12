@@ -15,7 +15,7 @@
   --headline: hsl(210, 11%, 15%);
   --paragraph: hsl(210, 9%, 31%);
   --brand-beige: hsl(40, 100%, 97%);
-  --brand-light: hsl(calc(var(--hue-s) - 22), 23%, 89%);
+  --brand-light: hsl(calc(var(--hue) - 22), 23%, 89%);
   --brand-light-2: hsl(calc(var(--hue) - 10), 14%, 97%);
   --brand-hover: hsl(var(--hue), 100%, 14%);
   --bg-light: hsl(0, 0%, 96%);
@@ -437,8 +437,7 @@ body.menu-expanded button path {
 }
 
 #depositions .col-c .cards #sec1:checked ~ .input-navigation .bar[for='sec1'],
-#depositions .col-c .cards #sec2:checked ~ .input-navigation .bar[for='sec2'],
-#depositions .col-c .cards #sec3:checked ~ .input-navigation .bar[for='sec3'] {
+#depositions .col-c .cards #sec2:checked ~ .input-navigation .bar[for='sec2']{
   background-color: var(--primary-color);
 }
 
@@ -461,15 +460,11 @@ body.menu-expanded button path {
 }
 
 #depositions .col-c #sec1:checked ~ .s1 {
-  margin-left: -25rem;
+  margin-left: -163rem;
 }
 
 #depositions .col-c #sec2:checked ~ .s1 {
-  margin-left: -210.4rem;
-}
-
-#depositions .col-c #sec3:checked ~ .s1 {
-  margin-left: -132.1%;
+  margin-left: -349rem;
 }
 
 #depositions .col-c .input-navigation {
@@ -528,37 +523,6 @@ body.menu-expanded button path {
 
 #about .content p {
   margin-block: 2.4rem 6rem;
-}
-
-/*==== MODAL WINDOW ============================================ */
-
-#modalWindow{
-  display: none;
-  position: fixed;
-  z-index: 1000;
-  padding-top: 10rem;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgb(0,0,0,0.8);
-  overflow: auto;
-}
-
-#modalImage{
-  margin: auto;
-  display: block;
-  width: 100%;
-  max-width: 80rem;
-}
-
-#btnClose{
-  position: absolute;
-  top: 1.5rem;
-  right: 3.5rem;
-  color: #ffffff;
-  font-weight: bold;
-  cursor: pointer;
 }
 
 /*==== CONTACT ============================================ */
@@ -942,7 +906,7 @@ footer .social-links {
   }
 
   #services .card {
-    width: 30%;
+    width: 20%;
     flex-grow: 1;
     transition: scale 0.3s;
   }
@@ -952,10 +916,6 @@ footer .social-links {
   }
 
   /*==== DEPOSITIONS ======================= */
-
-  section#depositions {
-    padding-top: 1rem;
-  }
 
   #depositions h2 {
     width: 47rem;
@@ -973,11 +933,10 @@ footer .social-links {
   }
 
   #about .wrapper {
-    grid-template-columns: 48rem 1fr;
+    grid-template-columns: 1fr 1fr;
     grid-template-areas:
-      'A B'
-      'C C'
-      'D D';
+      'A C'
+      'B C';
     gap: 6.7rem;
   }
 
@@ -986,163 +945,12 @@ footer .social-links {
     text-align: justify;
   }
 
-  /* #ABOUT SLIDER START */
-
-  #about .col-c {
-    height: 45rem;
-    position: relative;
+  #about .item {
+    width: 100%;
   }
 
-  #about .col-c .items {
-    display: flex;
-    width: 400%;
-    height: 100%;
-  }
-
-  #about .col-c .items .item {
-    width: 20%;
-    height: 100%;
-    transition: 1s;
-  }
-
-  #about .col-c img {
-    width: 80%;
-    height: 100%;
-    object-fit: cover;
-    border: 0.2rem solid var(--brand-light);
-    border-radius: 2rem;
-  }
-
-  #about .col-c #slide1:checked ~ .s1 {
-    margin-left: 5.5%;
-  }
-
-  #about .col-c #slide2:checked ~ .s1 {
-    margin-left: -15%;
-  }
-
-  #about .col-c #slide3:checked ~ .s1 {
-    margin-left: -35%;
-  }
-
-  #about .col-c #slide4:checked ~ .s1 {
-    margin-left: -55.1%;
-  }
-
-  #about .col-c #slide5:checked ~ .s1 {
-    margin-left: -75%;
-  }
-
-  #about .col-c .items #slide1:checked ~ div:nth-child(6),
-  #about .col-c .items #slide2:checked ~ div:nth-child(7),
-  #about .col-c .items #slide3:checked ~ div:nth-child(8),
-  #about .col-c .items #slide4:checked ~ div:nth-child(9),
-  #about .col-c .items #slide5:checked ~ div:nth-child(10) {
-    scale: 1.2;
-  }
-
-  #about .col-c input {
-    opacity: 0;
-    position: absolute;
-  }
-
-  #about
-    .col-c
-    .items
-    input[type='radio']#slide1:checked
-    ~ .input-navigation
-    > .bar[for='slide1'],
-  #about
-    .col-c
-    .items
-    input[type='radio']#slide2:checked
-    ~ .input-navigation
-    > .bar[for='slide2'],
-  #about
-    .col-c
-    .items
-    input[type='radio']#slide3:checked
-    ~ .input-navigation
-    > .bar[for='slide3'],
-  #about
-    .col-c
-    .items
-    input[type='radio']#slide4:checked
-    ~ .input-navigation
-    > .bar[for='slide4'],
-  #about
-    .col-c
-    .items
-    input[type='radio']#slide5:checked
-    ~ .input-navigation
-    > .bar[for='slide5'] {
-    background-color: var(--brand-light);
-  }
-
-  #about .col-c .input-navigation {
-    position: absolute;
-    left: 50%;
-    bottom: 2rem;
-    transform: translateX(-50%);
-    display: flex;
-  }
-
-  #about .col-c .bar {
-    width: 7rem;
-    height: 1.7rem;
-    border: 0.2rem solid var(--brand-light);
-    border-radius: 0.5rem;
-    margin: 0.6rem;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-
-  #about .col-c .bar:hover {
-    background-color: var(--brand-light);
-  }
-
-  /* SLIDER END */
-
-  #about .col-d {
-    margin: auto;
-    text-align: center;
-  }
-
-  #about h5 {
-    font-size: 2.4rem;
-    padding-bottom: 4.3rem;
-  }
-
-  #about .col-d svg {
-    width: 10vw;
-    height: 7rem;
-    margin-inline: 2vw;
-    transition: scale 0.3s;
-  }
-
-  #about .col-d li {
-    transition: scale 0.3s;
-  }
-
-  #about .col-d li:hover {
-    scale: 1.5;
-  }
-
-  #about .col-d svg path {
-    fill: var(--primary-color);
-  }
-
-  #about .col-d ul.companies {
-    height: 7rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    transition: scale 0.3s;
-  }
-
-  #about .col-d ul.companies:hover {
-    scale: 1.1;
+  #about .item img{
+    border-radius: 3rem;
   }
 
   /*==== CONTACT ======================= */
