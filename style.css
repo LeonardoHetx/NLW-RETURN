@@ -895,7 +895,7 @@ footer .social-links {
   /*==== SERVICES ======================= */
 
   section#services {
-    padding-top: 1rem;
+    padding-top: 10rem;
   }
 
   #services h2 {
@@ -947,6 +947,10 @@ footer .social-links {
   }
 
   /*==== CONTACT ======================= */
+
+  section#contact {
+    padding-block: 7rem;
+  }
 
   #contact .wrapper {
     width: 100%;

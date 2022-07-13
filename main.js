@@ -15,6 +15,11 @@ function onScroll() {
 
 function activateMenuAtCurrentSection(section) {
    const targetLine = scrollY + innerHeight / 2
+   // console.log(scrollY)
+   // console.log(innerHeight)
+   // console.log(targetLine)
+   // console.log(about.offsetTop)
+   // console.log(about.offsetHeight)
 
    //verificar se a seção passou da linha
    const sectionTop = section.offsetTop
