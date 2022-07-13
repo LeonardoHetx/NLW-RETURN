@@ -1,6 +1,4 @@
-window.onload = function () {
-
-   //TO CHECK WHICH SECTION YOU ARE IN
+//TO CHECK WHICH SECTION YOU ARE IN
    window.addEventListener('scroll', onScroll)
 
    onScroll()
@@ -118,7 +116,7 @@ window.onload = function () {
 
    // toCount(number in text, how often, number position in class list, time to count)
    toCount(3500, 100, 0, 20)
-   toCount(20, 1, 1, 50)
+   toCount(15, 1, 1, 50)
 
 
    //#DEPOSITIONS ARROW PREV AND NXT
@@ -147,4 +145,3 @@ window.onload = function () {
    function setCard(num) {
       return arrows[num].setAttribute('for', `sec${i}`)
    }
-}
