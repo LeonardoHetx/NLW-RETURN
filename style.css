@@ -525,13 +525,8 @@ body.menu-expanded button path {
   margin-block: 2.4rem 6rem;
 }
 
-#about .item {
-  
-}
-
-#about .item img{
+#about img{
   border-radius: 3rem;
-  width: 100%;
 }
 
 /*==== CONTACT ============================================ */
@@ -937,21 +932,18 @@ footer .social-links {
 
   /*==== ABOUT ======================= */
 
-  section#about {
-    overflow: hidden;
-  }
-
   #about .wrapper {
     grid-template-columns: 1fr 1fr;
-    grid-template-areas:
-      'A C'
-      'B C';
+    grid-template-areas: 'B A';
     gap: 6.7rem;
+  }
+
+  #about .col-a {
+    align-self: center;
   }
 
   #about .content p {
     margin-bottom: 0;
-    text-align: justify;
   }
 
   /*==== CONTACT ======================= */
