@@ -834,7 +834,7 @@ footer .social-links {
   }
 
   #home::before {
-    height: max(70rem);
+    height: 70rem;
   }
 
   #home .wrapper {
