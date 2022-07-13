@@ -1,90 +1,95 @@
-//TO CHECK WHICH SECTION YOU ARE IN
-window.addEventListener('scroll', onScroll)
+window.onload = function () {
 
-onScroll()
+   //TO CHECK WHICH SECTION YOU ARE IN
+   window.addEventListener('scroll', onScroll)
 
-function onScroll() {
-   showNavOnScroll()
-   showBackToTopButtonOnScroll()
+   onScroll()
 
-   activateMenuAtCurrentSection(home)
-   activateMenuAtCurrentSection(services)
-   activateMenuAtCurrentSection(about)
-   activateMenuAtCurrentSection(contact)
-}
+   function onScroll() {
+      showNavOnScroll()
+      showBackToTopButtonOnScroll()
 
-function activateMenuAtCurrentSection(section) {
-   const targetLine = scrollY + innerHeight / 2
-   // console.log(scrollY)
-   // console.log(innerHeight)
-   // console.log(targetLine)
-   // console.log(about.offsetTop)
-   // console.log(about.offsetHeight)
-
-   //verificar se a seção passou da linha
-   const sectionTop = section.offsetTop
-   const sectionHeight = section.offsetHeight
-   const sectionTopReachOrPassedTargetLine = targetLine >= sectionTop
-
-   //verificar se a base está abaixo da linha alvo
-   const sectionEndsAt = sectionTop + sectionHeight
-   const sectionEndPassedTargetLine = sectionEndsAt <= targetLine
-
-   //limites da seção
-   const sectionBoundaries =
-      sectionTopReachOrPassedTargetLine &&
-      !sectionEndPassedTargetLine
-
-   const sectionId = section.getAttribute(`id`)
-   const menuElement = document.querySelector(`.menu a[href*=${sectionId}]`)
-
-   menuElement.classList.remove('active')
-   if (sectionBoundaries) {
-      menuElement.classList.add('active')
+      activateMenuAtCurrentSection(home)
+      activateMenuAtCurrentSection(services)
+      activateMenuAtCurrentSection(about)
+      activateMenuAtCurrentSection(contact)
    }
-}
 
-function showNavOnScroll() {
-   if (scrollY > 0) {
-      navigation.classList.add('scroll')
-   } else {
-      navigation.classList.remove('scroll')
+   function activateMenuAtCurrentSection(section) {
+      const targetLine = scrollY + innerHeight / 2
+      // console.log(scrollY)
+      // console.log(innerHeight)
+      // console.log(targetLine)
+      // console.log(about.offsetTop)
+      // console.log(about.offsetHeight)
+
+      //verificar se a seção passou da linha
+      const sectionTop = section.offsetTop
+      const sectionHeight = section.offsetHeight
+      const sectionTopReachOrPassedTargetLine = targetLine >= sectionTop
+
+      //verificar se a base está abaixo da linha alvo
+      const sectionEndsAt = sectionTop + sectionHeight
+      const sectionEndPassedTargetLine = sectionEndsAt <= targetLine
+
+      //limites da seção
+      const sectionBoundaries =
+         sectionTopReachOrPassedTargetLine &&
+         !sectionEndPassedTargetLine
+
+      const sectionId = section.getAttribute(`id`)
+      const menuElement = document.querySelector(`.menu a[href*=${sectionId}]`)
+
+      menuElement.classList.remove('active')
+      if (sectionBoundaries) {
+         menuElement.classList.add('active')
+      }
    }
-}
 
-function showBackToTopButtonOnScroll() {
-   if (scrollY > 1400) {
-      backToTopButton.classList.add('show')
-   } else {
-      backToTopButton.classList.remove('show')
+   
+
+   function showNavOnScroll() {
+      const navigation = document.querySelector('#navigation')
+      if (scrollY > 0) {
+         navigation.classList.add('scroll')
+      } else {
+         navigation.classList.remove('scroll')
+      }
    }
-}
 
-function openMenu() {
-   document.body.classList.add('menu-expanded')
-}
+   function showBackToTopButtonOnScroll() {
+      if (scrollY > 1400) {
+         backToTopButton.classList.add('show')
+      } else {
+         backToTopButton.classList.remove('show')
+      }
+   }
 
-function closeMenu() {
-   document.body.classList.remove('menu-expanded')
-}
+   function openMenu() {
+      document.body.classList.add('menu-expanded')
+   }
 
-//SCROLL REVEAL API
+   function closeMenu() {
+      document.body.classList.remove('menu-expanded')
+   }
 
-ScrollReveal({
-   origin: 'left',
-   distance: '80px',
-   duration: 700
-}).reveal(`
+   //SCROLL REVEAL API
+
+   ScrollReveal({
+      origin: 'left',
+      distance: '80px',
+      duration: 700
+   }).reveal(`
    #homeToScroll , 
    #homeToScroll img, 
    #homeToScroll .stat`)
 
 
-ScrollReveal({
-   origin: 'top',
-   distance: '80px',
-   duration: 700
-}).reveal(` 
+   ScrollReveal({
+      origin: 'top',
+      distance: '80px',
+      duration: 700
+   }).reveal(` 
    #services,
    #services header,
    #services .card,
@@ -93,52 +98,53 @@ ScrollReveal({
    #about .content,
    #about .content img`)
 
-//#HOME .STATS COUNTER
+   //#HOME .STATS COUNTER
 
-function toCount(x, b, a, c) {
-   let n1 = 0
-   let count = setInterval(() => {
-      var numbersHome = document.getElementsByClassName('count')[a].innerText = `+${n1 += b}`
-      if (n1 === x) {
-         clearInterval(count)
-      }
-      textAppear(a)
-   }, c)
-}
+   function toCount(x, b, a, c) {
+      let n1 = 0
+      let count = setInterval(() => {
+         var numbersHome = document.getElementsByClassName('count')[a].innerText = `+${n1 += b}`
+         if (n1 === x) {
+            clearInterval(count)
+         }
+         textAppear(a)
+      }, c)
+   }
 
-//puts visibility in texts
-function textAppear(a) {
-   document.getElementsByClassName('count')[a].classList.remove('appear')
-}
+   //puts visibility in texts
+   function textAppear(a) {
+      document.getElementsByClassName('count')[a].classList.remove('appear')
+   }
 
-// toCount(number in text, how often, number position in class list, time to count)
-toCount(3500, 100, 0, 20)
-toCount(20, 1, 1, 50)
+   // toCount(number in text, how often, number position in class list, time to count)
+   toCount(3500, 100, 0, 20)
+   toCount(20, 1, 1, 50)
 
 
-//#DEPOSITIONS ARROW PREV AND NXT
+   //#DEPOSITIONS ARROW PREV AND NXT
 
-let arrow = document.getElementsByClassName('arrow')
+   let arrow = document.getElementsByClassName('arrow')
 
-let bar = document.querySelectorAll("#depositions .bar")
+   let bar = document.querySelectorAll("#depositions .bar")
 
-let arrows = [arrow[0],arrow[1]]
+   let arrows = [arrow[0], arrow[1]]
 
-let i = 1
-function prev(){
-   if(i <= 1) i = bar.length + 1
-   i--;
-   console.log(i)
-   return setCard(0)  
-}
+   let i = 1
+   function prev() {
+      if (i <= 1) i = bar.length + 1
+      i--;
+      console.log(i)
+      return setCard(0)
+   }
 
-function next(){
-   if(i >= bar.length) i = 0
-   i++;
-   console.log(i)
-   return setCard(1)
-}
+   function next() {
+      if (i >= bar.length) i = 0
+      i++;
+      console.log(i)
+      return setCard(1)
+   }
 
-function setCard(num){
-   return arrows[num].setAttribute('for', `sec${i}`)
+   function setCard(num) {
+      return arrows[num].setAttribute('for', `sec${i}`)
+   }
 }
