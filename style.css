@@ -386,7 +386,12 @@ body.menu-expanded button path {
   background-color: #ffffff;
   border: 1px solid var(--brand-light);
   border-radius: 0.6rem;
+  transition: transform 0.3s;
 }
+
+#services .card:hover {
+  transform: scale(1.1) !important;
+ }
 
 #services .card svg,
 #services .card svg path {
@@ -443,7 +448,8 @@ body.menu-expanded button path {
 }
 
 #depositions .col-c .cards #sec1:checked ~ .input-navigation .bar[for='sec1'],
-#depositions .col-c .cards #sec2:checked ~ .input-navigation .bar[for='sec2']{
+#depositions .col-c .cards #sec2:checked ~ .input-navigation .bar[for='sec2'],
+#depositions .col-c .cards #sec3:checked ~ .input-navigation .bar[for='sec3']{
   background-color: var(--primary-color);
 }
 
@@ -466,11 +472,15 @@ body.menu-expanded button path {
 }
 
 #depositions .col-c #sec1:checked ~ .s1 {
-  margin-left: -163rem;
+  margin-left: -161rem;
 }
 
 #depositions .col-c #sec2:checked ~ .s1 {
-  margin-left: -349rem;
+  margin-left: -253rem;
+}
+
+#depositions .col-c #sec3:checked ~ .s1 {
+  margin-left: -346rem;
 }
 
 #depositions .col-c .input-navigation {
@@ -906,6 +916,7 @@ footer .social-links {
 
   section#services {
     padding-top: 10rem;
+    overflow-x: hidden;
   }
 
   #services h2 {
@@ -922,11 +933,6 @@ footer .social-links {
   #services .card {
     width: 40%;
     flex-grow: 1;
-    transition: scale 0.3s;
-  }
-
-  #services .card:hover {
-    scale: 1.1;
   }
 
   /*==== DEPOSITIONS ======================= */
@@ -938,6 +944,19 @@ footer .social-links {
 
   #depositions .col-c {
     grid-area: auto;
+  }
+
+  #depositions .col-c #sec1:checked ~ .s1 {
+    margin-left: -163rem;
+  }
+  
+  #depositions .col-c #sec2:checked ~ .s1 {
+    margin-left: -349rem;
+  }
+
+  #depositions .col-c label.bar:nth-child(3),
+  #depositions .col-c input:nth-child(3){
+    display: none;
   }
 
   /*==== ABOUT ======================= */
