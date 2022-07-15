@@ -15,11 +15,6 @@ function onScroll() {
 
 function activateMenuAtCurrentSection(section) {
    const targetLine = scrollY + innerHeight / 2
-   // console.log(scrollY)
-   // console.log(innerHeight)
-   // console.log(targetLine)
-   // console.log(about.offsetTop)
-   // console.log(about.offsetHeight)
 
    //verificar se a seção passou da linha
    const sectionTop = section.offsetTop
@@ -45,6 +40,8 @@ function activateMenuAtCurrentSection(section) {
 }
 
 function showNavOnScroll() {
+   const navigation = document.querySelector('#navigation')
+
    if (scrollY > 0) {
       navigation.classList.add('scroll')
    } else {
@@ -122,20 +119,26 @@ let arrow = document.getElementsByClassName('arrow')
 
 let bar = document.querySelectorAll("#depositions .bar")
 
+let barArray = Array.from(bar)
+
+let elemStyle = window.getComputedStyle(bar[2], null).getPropertyValue("display")
+
+if (elemStyle == 'none'){
+   barArray.pop()
+}
+
 let arrows = [arrow[0],arrow[1]]
 
 let i = 1
 function prev(){
-   if(i <= 1) i = bar.length + 1
+   if(i <= 1) i = barArray.length + 1
    i--;
-   console.log(i)
    return setCard(0)  
 }
 
 function next(){
-   if(i >= bar.length) i = 0
+   if(i >= barArray.length) i = 0
    i++;
-   console.log(i)
    return setCard(1)
 }
 
