@@ -406,6 +406,10 @@ body.menu-expanded button path {
 
 /*==== DEPOSITIONS ============================================ */
 
+section#depositions{
+  overflow-x: hidden;
+}
+
 #depositions .wrapper {
   position: relative;
 }
